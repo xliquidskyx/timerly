@@ -1,70 +1,169 @@
-# Getting Started with Create React App
+# Timerly - Cooking Assistant Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Aplikacja wspomagająca gotowanie z timerami i przepisami, zgodna z dokumentacją wymagań.
 
-## Available Scripts
+## Funkcjonalności
 
-In the project directory, you can run:
+### Dla użytkowników:
+- Przeglądanie przepisów
+- Filtrowanie przepisów po produktach, czasie gotowania i metodzie
+- Wyszukiwanie przepisów
+- Szczegóły przepisu z pełnymi instrukcjami
+- Timer gotowania z powiadomieniami
+- Dodawanie przepisów do ulubionych
+- Wielojęzyczność (angielski, polski, niemiecki)
 
-### `npm start`
+### Dla administratorów:
+- Panel administracyjny z autentykacją
+- Zarządzanie przepisami (dodawanie, edycja, usuwanie)
+- Zarządzanie produktami (dodawanie, edycja, usuwanie)
+- Statystyki systemu
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Wymagania
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js 14+
+- MySQL 8.0+
+- npm lub yarn
 
-### `npm test`
+## Instalacja
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+```bash
+cd backend
+npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Skonfiguruj bazę danych w `backend/config/config.json`:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```json
+{
+  "development": {
+    "username": "root",
+    "password": "your_password",
+    "database": "timerly_db",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Utwórz plik `.env` w katalogu `backend`:
 
-### `npm run eject`
+```
+PORT=5000
+NODE_ENV=development
+JWT_SECRET=your-secret-key
+GOOGLE_RECIPES_API_KEY=your-api-key-if-available
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Utwórz pierwszego administratora:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm run create-admin [username] [password]
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Dodaj przykładowe dane (opcjonalnie):
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm run seed
+```
 
-## Learn More
+Uruchom serwer:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Uwaga dla użytkowników PowerShell (Windows):**
+W PowerShell użyj `;` zamiast `&&` lub uruchamiaj komendy osobno:
+```powershell
+cd backend; npm install
+cd ..; npm install
+```
 
-### Code Splitting
+### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+W głównym katalogu projektu:
 
-### Analyzing the Bundle Size
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Utwórz plik `.env` w głównym katalogu:
 
-### Making a Progressive Web App
+```
+REACT_APP_API_URL=http://localhost:5000/api
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Uruchom aplikację:
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Aplikacja będzie dostępna pod adresem `http://localhost:3000`
 
-### Deployment
+## Struktura projektu
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
+timerly-main/
+├── backend/
+│   ├── config/          # Konfiguracja bazy danych
+│   ├── models/           # Modele Sequelize
+│   ├── routes/           # Endpointy API
+│   ├── middleware/       # Middleware (autentykacja)
+│   └── server.js         # Główny plik serwera
+├── src/
+│   ├── components/       # Komponenty React
+│   ├── services/         # Serwisy API
+│   ├── i18n/             # Pliki tłumaczeń
+│   └── App.js            # Główny komponent
+└── public/               # Pliki statyczne
+```
 
-### `npm run build` fails to minify
+## API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Przepisy
+- `GET /api/recipes` - Lista przepisów (z filtrowaniem)
+- `GET /api/recipes/:id` - Szczegóły przepisu
+- `GET /api/recipes/search/api` - Wyszukiwanie w API
+
+### Produkty
+- `GET /api/products` - Lista produktów
+- `GET /api/products/:id` - Szczegóły produktu
+
+### Timery
+- `POST /api/timers` - Utworzenie timera
+- `GET /api/timers` - Lista timerów
+- `GET /api/timers/:id` - Szczegóły timera
+- `PATCH /api/timers/:id` - Aktualizacja statusu timera
+
+### Użytkownicy
+- `POST /api/users` - Utworzenie użytkownika
+- `GET /api/users/:id` - Szczegóły użytkownika
+- `PATCH /api/users/:id/preferences` - Aktualizacja preferencji
+- `POST /api/users/:id/favorites` - Dodanie do ulubionych
+- `DELETE /api/users/:id/favorites/:recipeId` - Usunięcie z ulubionych
+
+### Admin
+- `POST /api/admin/login` - Logowanie
+- `POST /api/admin/recipes` - Dodanie przepisu
+- `PUT /api/admin/recipes/:id` - Aktualizacja przepisu
+- `DELETE /api/admin/recipes/:id` - Usunięcie przepisu
+- `POST /api/admin/products` - Dodanie produktu
+- `PUT /api/admin/products/:id` - Aktualizacja produktu
+- `DELETE /api/admin/products/:id` - Usunięcie produktu
+- `GET /api/admin/stats` - Statystyki systemu
+
+## Uwagi
+
+- Aplikacja używa Sequelize ORM do zarządzania bazą danych
+- Baza danych jest automatycznie synchronizowana w trybie development
+- Hasła administratorów są hashowane przy użyciu bcrypt
+- Powiadomienia przeglądarki wymagają pozwolenia użytkownika
+- Aplikacja jest responsywna i działa na urządzeniach mobilnych (min. 600px szerokości)
+
+## Licencja
+
+ISC

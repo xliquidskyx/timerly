@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "Timerly - Asystent Gotowania",
+    "welcome": "Witaj w Timerly"
+  },
+  "recipes": {
+    "title": "Przepisy",
+    "search": "Szukaj przepisów",
+    "filterByProducts": "Filtruj po produktach",
+    "filterByTime": "Filtruj po czasie gotowania (minuty)",
+    "filterByMethod": "Filtruj po metodzie gotowania",
+    "noRecipes": "Nie znaleziono przepisów",
+    "viewRecipe": "Zobacz Przepis",
+    "startTimer": "Uruchom Timer",
+    "ingredients": "Składniki",
+    "instructions": "Instrukcje",
+    "cookingTime": "Czas Gotowania",
+    "cookingMethod": "Metoda Gotowania",
+    "temperature": "Temperatura",
+    "restTime": "Czas Odpoczynku",
+    "addToFavorites": "Dodaj do Ulubionych",
+    "removeFromFavorites": "Usuń z Ulubionych"
+  },
+  "timer": {
+    "title": "Timer Gotowania",
+    "remaining": "Pozostało",
+    "start": "Start",
+    "pause": "Pauza",
+    "resume": "Wznów",
+    "stop": "Stop",
+    "completed": "Gotowanie zakończone!",
+    "timeUp": "Czas minął!"
+  },
+  "products": {
+    "title": "Produkty",
+    "selectProducts": "Wybierz produkty, które masz",
+    "category": "Kategoria",
+    "all": "Wszystkie"
+  },
+  "admin": {
+    "title": "Panel Administracyjny",
+    "login": "Zaloguj",
+    "logout": "Wyloguj",
+    "username": "Nazwa użytkownika",
+    "password": "Hasło",
+    "recipes": "Przepisy",
+    "products": "Produkty",
+    "stats": "Statystyki",
+    "addRecipe": "Dodaj Przepis",
+    "editRecipe": "Edytuj Przepis",
+    "deleteRecipe": "Usuń Przepis",
+    "addProduct": "Dodaj Produkt",
+    "editProduct": "Edytuj Produkt",
+    "deleteProduct": "Usuń Produkt",
+    "save": "Zapisz",
+    "cancel": "Anuluj"
+  },
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Błąd",
+    "success": "Sukces",
+    "minutes": "minut",
+    "seconds": "sekund",
+    "degrees": "°C"
+  }
+}

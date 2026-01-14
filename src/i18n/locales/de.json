@@ -1,0 +1,66 @@
+{
+  "app": {
+    "title": "Timerly - Kochassistent",
+    "welcome": "Willkommen bei Timerly"
+  },
+  "recipes": {
+    "title": "Rezepte",
+    "search": "Rezepte suchen",
+    "filterByProducts": "Nach Produkten filtern",
+    "filterByTime": "Nach Kochzeit filtern (Minuten)",
+    "filterByMethod": "Nach Kochmethode filtern",
+    "noRecipes": "Keine Rezepte gefunden",
+    "viewRecipe": "Rezept ansehen",
+    "startTimer": "Timer starten",
+    "ingredients": "Zutaten",
+    "instructions": "Anweisungen",
+    "cookingTime": "Kochzeit",
+    "cookingMethod": "Kochmethode",
+    "temperature": "Temperatur",
+    "restTime": "Ruhezeit",
+    "addToFavorites": "Zu Favoriten hinzufügen",
+    "removeFromFavorites": "Aus Favoriten entfernen"
+  },
+  "timer": {
+    "title": "Kochtimer",
+    "remaining": "Verbleibend",
+    "start": "Start",
+    "pause": "Pause",
+    "resume": "Fortsetzen",
+    "stop": "Stop",
+    "completed": "Kochen abgeschlossen!",
+    "timeUp": "Zeit abgelaufen!"
+  },
+  "products": {
+    "title": "Produkte",
+    "selectProducts": "Wählen Sie Produkte aus, die Sie haben",
+    "category": "Kategorie",
+    "all": "Alle"
+  },
+  "admin": {
+    "title": "Admin-Panel",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "recipes": "Rezepte",
+    "products": "Produkte",
+    "stats": "Statistiken",
+    "addRecipe": "Rezept hinzufügen",
+    "editRecipe": "Rezept bearbeiten",
+    "deleteRecipe": "Rezept löschen",
+    "addProduct": "Produkt hinzufügen",
+    "editProduct": "Produkt bearbeiten",
+    "deleteProduct": "Produkt löschen",
+    "save": "Speichern",
+    "cancel": "Abbrechen"
+  },
+  "common": {
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "minutes": "Minuten",
+    "seconds": "Sekunden",
+    "degrees": "°C"
+  }
+}

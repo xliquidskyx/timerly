@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timerly - Asystent Gotowania</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍳 Timerly - Asystent Gotowania</h1>
+            <div class="header-actions">
+                <select id="languageSelect" class="language-select">
+                    <option value="pl">Polski</option>
+                    <option value="en">English</option>
+                    <option value="de">Deutsch</option>
+                </select>
+                <button id="adminBtn" class="btn-secondary">Panel Admin</button>
+            </div>
+        </header>
+
+        <!-- Widok główny - Lista przepisów -->
+        <div id="mainView" class="view active">
+            <div class="filters">
+                <input type="text" id="searchInput" class="search-input" placeholder="Szukaj przepisów...">
+                <input type="number" id="timeFilter" class="filter-input" placeholder="Max czas (min)" min="1">
+                <select id="methodFilter" class="filter-select">
+                    <!-- Opcje będą wypełnione przez JavaScript -->
+                </select>
+                <button id="searchApiBtn" class="btn-primary">🔍 Szukaj w API</button>
+            </div>
+            <div id="apiSearchSection" style="display: none; margin-bottom: 20px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                <h3>Wyszukaj przepisy z API</h3>
+                <div style="display: flex; gap: 10px; margin-bottom: 10px; flex-wrap: wrap;">
+                    <input type="text" id="apiSearchInput" class="search-input" placeholder="Wpisz nazwę przepisu..." style="flex: 1; min-width: 200px;">
+                    <select id="apiProvider" class="filter-select" style="display: none;">
+                        <option value="themealdb">TheMealDB</option>
+                    </select>
+                    <button id="apiSearchBtn" class="btn-primary">Szukaj</button>
+                    <button id="closeApiSearch" class="btn-secondary">✕</button>
+                </div>
+                <div id="apiLoading" style="display: none; text-align: center; padding: 20px;">
+                    <p>Ładowanie przepisów z API...</p>
+                </div>
+                <div id="apiResults" class="recipes-grid"></div>
+            </div>
+            <div class="products-filter">
+                <h3 id="productsFilterTitle">Wybierz produkty:</h3>
+                <div id="productsList" class="products-list"></div>
+            </div>
+            <div id="recipesList" class="recipes-grid"></div>
+        </div>
+
+        <!-- Widok szczegółów przepisu -->
+        <div id="recipeView" class="view">
+            <button id="backBtn" class="btn-back">← Powrót</button>
+            <div id="recipeDetails"></div>
+        </div>
+
+        <!-- Widok timera -->
+        <div id="timerView" class="view">
+            <button id="timerBackBtn" class="btn-back">← Powrót</button>
+            <div id="timerDisplay"></div>
+        </div>
+
+        <!-- Panel administracyjny -->
+        <div id="adminView" class="view">
+            <div id="adminLogin" class="admin-login">
+                <h2>Logowanie Administratora</h2>
+                <input type="text" id="adminUsername" placeholder="Nazwa użytkownika" class="input-field">
+                <input type="password" id="adminPassword" placeholder="Hasło" class="input-field">
+                <button id="loginBtn" class="btn-primary">Zaloguj</button>
+                <div id="loginError" class="error-message"></div>
+            </div>
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <div class="admin-header">
+                    <h2>Panel Administracyjny</h2>
+                    <button id="logoutBtn" class="btn-secondary">Wyloguj</button>
+                </div>
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="recipes">Przepisy</button>
+                    <button class="tab-btn" data-tab="products">Produkty</button>
+                </div>
+                <div id="adminRecipesTab" class="admin-tab-content active">
+                    <button id="addRecipeBtn" class="btn-primary">Dodaj Przepis</button>
+                    <div id="adminRecipesList"></div>
+                </div>
+                <div id="adminProductsTab" class="admin-tab-content">
+                    <button id="addProductBtn" class="btn-primary">Dodaj Produkt</button>
+                    <div id="adminProductsList"></div>
+                </div>
+                <div class="admin-tab-content" style="margin-top: 30px; padding-top: 30px; border-top: 2px solid #e0e0e0;">
+                    <h3>Informacje o API</h3>
+                    <p style="color: #666; margin-bottom: 20px;">Aplikacja używa TheMealDB API do wyszukiwania przepisów.</p>
+                    <p style="margin-top: 15px; font-size: 0.9rem; color: #888;">
+                        <strong>TheMealDB API:</strong> Działa bez klucza API, całkowicie darmowe.
+                        <br>Więcej informacji: <a href="https://www.themealdb.com/api.php" target="_blank">themealdb.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal dla dodawania/edycji przepisu -->
+    <div id="recipeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Dodaj Przepis</h2>
+            <form id="recipeForm">
+                <input type="text" id="recipeTitle" placeholder="Tytuł przepisu" class="input-field" required>
+                <textarea id="recipeIngredients" placeholder="Składniki (oddzielone przecinkami)" class="textarea-field" required></textarea>
+                <textarea id="recipeInstructions" placeholder="Instrukcje" class="textarea-field" required></textarea>
+                <input type="number" id="recipeCookingTime" placeholder="Czas gotowania (minuty)" class="input-field" required>
+                <select id="recipeMethod" class="input-field" required>
+                    <option value="">Wybierz metodę</option>
+                    <option value="boiling">Gotowanie</option>
+                    <option value="baking">Pieczenie</option>
+                    <option value="grilling">Grillowanie</option>
+                    <option value="steaming">Gotowanie na parze</option>
+                    <option value="frying">Smażenie</option>
+                    <option value="roasting">Pieczenie w piekarniku</option>
+                </select>
+                <input type="number" id="recipeTemperature" placeholder="Temperatura (°C)" class="input-field">
+                <input type="number" id="recipeRestTime" placeholder="Czas odpoczynku (minuty)" class="input-field">
+                <div style="margin-top: 20px;">
+                    <label style="display: block; margin-bottom: 10px; font-weight: 500;">Kroki przygotowania z timerami (opcjonalne):</label>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">Format: "Krok 1|5" gdzie 5 to czas w minutach. Każdy krok w nowej linii.</p>
+                    <textarea id="recipeSteps" class="textarea-field" placeholder="Przykład:&#10;Pokrój warzywa|5&#10;Gotuj makaron|10&#10;Usmaż mięso|15" style="min-height: 120px;"></textarea>
+                    <p style="font-size: 0.85rem; color: #888; margin-top: 5px;">Każdy krok w osobnej linii. Format: "Opis kroku|czas_w_minutach"</p>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelRecipeBtn">Anuluj</button>
+                    <button type="submit" class="btn-primary">Zapisz</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal dla dodawania/edycji produktu -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="productModalTitle">Dodaj Produkt</h2>
+            <form id="productForm">
+                <input type="text" id="productName" placeholder="Nazwa produktu" class="input-field" required>
+                <select id="productCategory" class="input-field" required>
+                    <option value="">Wybierz kategorię</option>
+                    <option value="meat">Mięso</option>
+                    <option value="vegetable">Warzywo</option>
+                    <option value="grain">Zboże</option>
+                    <option value="dairy">Nabiał</option>
+                    <option value="spice">Przyprawa</option>
+                    <option value="other">Inne</option>
+                </select>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelProductBtn">Anuluj</button>
+                    <button type="submit" class="btn-primary">Zapisz</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

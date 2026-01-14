@@ -1,0 +1,502 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.view {
+    display: none;
+    padding: 30px;
+}
+
+.view.active {
+    display: block;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.search-input, .filter-input, .filter-select {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus, .filter-input:focus, .filter-select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.products-filter {
+    margin-bottom: 30px;
+}
+
+.products-filter h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.product-chip {
+    padding: 10px 20px;
+    background: #f0f0f0;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.product-chip:hover {
+    background: #e0e0e0;
+}
+
+.product-chip.selected {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.recipe-card {
+    background: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    border-color: #667eea;
+}
+
+.recipe-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.recipe-card p {
+    color: #666;
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.recipe-card .recipe-meta {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.recipe-details {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.recipe-details h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.recipe-details .meta-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.recipe-details .meta-info p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.recipe-details .ingredients {
+    margin: 30px 0;
+}
+
+.recipe-details .ingredients h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.recipe-details .ingredients ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.recipe-details .ingredients li {
+    padding: 10px;
+    background: #f8f9fa;
+    margin: 5px 0;
+    border-radius: 5px;
+    border-left: 4px solid #667eea;
+}
+
+.recipe-details .instructions {
+    margin: 30px 0;
+}
+
+.recipe-details .instructions h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.recipe-details .instructions p {
+    line-height: 1.8;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.btn-primary, .btn-secondary, .btn-back {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-back {
+    background: #f8f9fa;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.btn-back:hover {
+    background: #e9ecef;
+}
+
+.timer-display {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.timer-display h2 {
+    font-size: 4rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.timer-display .timer-time {
+    font-size: 6rem;
+    color: #333;
+    margin: 30px 0;
+    font-weight: 300;
+    font-family: 'Courier New', monospace;
+}
+
+.timer-display .timer-progress {
+    width: 100%;
+    height: 20px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 30px 0;
+}
+
+.timer-display .timer-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 1s linear;
+}
+
+.timer-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.admin-login {
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.admin-login h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.input-field, .textarea-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.textarea-field {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.input-field:focus, .textarea-field:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.error-message {
+    color: #dc3545;
+    margin-top: 10px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.admin-panel {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.tab-btn {
+    padding: 15px 30px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    font-size: 16px;
+    color: #666;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.admin-tab-content {
+    display: none;
+}
+
+.admin-tab-content.active {
+    display: block;
+}
+
+.admin-list {
+    margin-top: 20px;
+}
+
+.admin-item {
+    background: #f8f9fa;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-item-info h4 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.admin-item-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit, .btn-delete {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn-edit {
+    background: #28a745;
+    color: white;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: auto;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #999;
+}
+
+.close:hover {
+    color: #333;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.language-select {
+    padding: 8px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.language-select option {
+    background: #667eea;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .recipes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .timer-display .timer-time {
+        font-size: 4rem;
+    }
+}
