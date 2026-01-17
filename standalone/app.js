@@ -158,6 +158,180 @@ const translations = {
     }
 };
 
+// Słownik produktów w przepisach (dwukierunkowy - PL->EN i EN->PL)
+const ingredientTranslations = {
+    // Polish to other languages
+    'Kurczak': { en: 'Chicken', de: 'Hähnchen' },
+    'Sól': { en: 'Salt', de: 'Salz' },
+    'Pieprz': { en: 'Pepper', de: 'Pfeffer' },
+    'Czosnek': { en: 'Garlic', de: 'Knoblauch' },
+    'Makaron': { en: 'Pasta', de: 'Nudeln' },
+    'Pomidory': { en: 'Tomatoes', de: 'Tomaten' },
+    'Pomidor': { en: 'Tomato', de: 'Tomate' },
+    'Cebula': { en: 'Onion', de: 'Zwiebel' },
+    'Ser': { en: 'Cheese', de: 'Käse' }
+};
+
+// English to Polish ingredient translations (for API recipes)
+const englishToPolishIngredients = {
+    // Common ingredients
+    'chicken': 'kurczak',
+    'chicken breast': 'pierś z kurczaka',
+    'salt': 'sól',
+    'pepper': 'pieprz',
+    'garlic': 'czosnek',
+    'pasta': 'makaron',
+    'fettuccine': 'makaron fettuccine',
+    'fettuccine pasta': 'makaron fettuccine',
+    'tomato': 'pomidor',
+    'tomatoes': 'pomidory',
+    'onion': 'cebula',
+    'cheese': 'ser',
+    'parmesan': 'parmezan',
+    'parmesan cheese': 'ser parmezan',
+    'butter': 'masło',
+    'cream': 'śmietana',
+    'heavy cream': 'śmietana kremówka',
+    'oil': 'olej',
+    'olive oil': 'oliwa z oliwek',
+    'water': 'woda',
+    'milk': 'mleko',
+    'egg': 'jajko',
+    'eggs': 'jajka',
+    'flour': 'mąka',
+    'sugar': 'cukier',
+    'rice': 'ryż',
+    'potato': 'ziemniak',
+    'potatoes': 'ziemniaki',
+    'carrot': 'marchew',
+    'carrots': 'marchewki',
+    'beef': 'wołowina',
+    'pork': 'wieprzowina',
+    'fish': 'ryba',
+    'salmon': 'łosoś',
+    'parsley': 'pietruszka',
+    'fresh parsley': 'świeża pietruszka',
+    'basil': 'bazylia',
+    'oregano': 'oregano',
+    'thyme': 'tymianek',
+    'bay leaf': 'liść laurowy',
+    'paprika': 'papryka',
+    'chili': 'chili',
+    'lemon': 'cytryna',
+    'lime': 'limonka',
+    'vinegar': 'ocet',
+    'soy sauce': 'sos sojowy',
+    'mustard': 'musztarda',
+    'honey': 'miód',
+    'ginger': 'imbir',
+    'cinnamon': 'cynamon',
+    'vanilla': 'wanilia',
+    'chocolate': 'czekolada',
+    'cocoa': 'kakao',
+    'bread': 'chleb',
+    'wine': 'wino',
+    'beer': 'piwo',
+    'broth': 'bulion',
+    'stock': 'wywar',
+    'chicken stock': 'wywar z kurczaka',
+    'vegetable': 'warzywo',
+    'vegetables': 'warzywa',
+    'meat': 'mięso',
+    'bacon': 'boczek',
+    'sausage': 'kiełbasa',
+    'ham': 'szynka',
+    'mushroom': 'grzyb',
+    'mushrooms': 'grzyby',
+    'spinach': 'szpinak',
+    'lettuce': 'sałata',
+    'cabbage': 'kapusta',
+    'broccoli': 'brokuły',
+    'cauliflower': 'kalafior',
+    'zucchini': 'cukinia',
+    'eggplant': 'bakłażan',
+    'cucumber': 'ogórek',
+    'bell pepper': 'papryka',
+    'red pepper': 'czerwona papryka',
+    'green pepper': 'zielona papryka',
+    'chili pepper': 'papryczka chili',
+    'corn': 'kukurydza',
+    'peas': 'groszek',
+    'beans': 'fasola',
+    'lentils': 'soczewica',
+    'chickpeas': 'ciecierzyca',
+    'tofu': 'tofu',
+    'nuts': 'orzechy',
+    'almonds': 'migdały',
+    'walnuts': 'orzechy włoskie',
+    'peanuts': 'orzeszki ziemne',
+    'cashews': 'orzechy nerkowca',
+    'apple': 'jabłko',
+    'banana': 'banan',
+    'orange': 'pomarańcza',
+    'strawberry': 'truskawka',
+    'strawberries': 'truskawki',
+    'blueberry': 'jagoda',
+    'blueberries': 'jagody',
+    'raspberry': 'malina',
+    'raspberries': 'maliny',
+    'peach': 'brzoskwinia',
+    'pear': 'gruszka',
+    'grape': 'winogrono',
+    'grapes': 'winogrona',
+    'watermelon': 'arbuz',
+    'melon': 'melon',
+    'pineapple': 'ananas',
+    'mango': 'mango',
+    'avocado': 'awokado',
+    'coconut': 'kokos',
+    'dried': 'suszony',
+    'fresh': 'świeży',
+    'frozen': 'mrożony',
+    'canned': 'konserwowy',
+    'chopped': 'posiekany',
+    'diced': 'pokrojony w kostkę',
+    'sliced': 'pokrojony',
+    'minced': 'zmielony',
+    'grated': 'tarty',
+    'ground': 'mielony',
+    'whole': 'cały',
+    'half': 'pół',
+    'quarter': 'ćwierć',
+    'pinch': 'szczypta',
+    'handful': 'garść',
+    'cup': 'szklanka',
+    'tablespoon': 'łyżka stołowa',
+    'teaspoon': 'łyżeczka',
+    'ounce': 'uncja',
+    'pound': 'funt',
+    'gram': 'gram',
+    'kilogram': 'kilogram',
+    'liter': 'litr',
+    'milliliter': 'mililitr',
+    'to taste': 'do smaku',
+    'for garnish': 'do dekoracji'
+};
+
+// Tłumaczenia tekstu przepisów
+const recipeTextTranslations = {
+    'Grillowany Kurczak': {
+        en: 'Grilled Chicken',
+        de: 'Gegrilltes Hähnchen'
+    },
+    'Makaron z Sosem Pomidorowym': {
+        en: 'Pasta with Tomato Sauce',
+        de: 'Nudeln mit Tomatensauce'
+    },
+    'Przypraw kurczaka solą, pieprzem i czosnkiem. Grilluj przez 20-25 minut aż będzie ugotowany.': {
+        en: 'Season the chicken with salt, pepper and garlic. Grill for 20-25 minutes until cooked.',
+        de: 'Das Hähnchen mit Salz, Pfeffer und Knoblauch würzen. 20-25 Minuten grillen bis es gar ist.'
+    },
+    'Ugotuj makaron według instrukcji. Podsmaż cebulę i czosnek, dodaj pomidory. Połącz z makaronem i posyp serem.': {
+        en: 'Cook pasta according to instructions. Sauté onion and garlic, add tomatoes. Combine with pasta and sprinkle with cheese.',
+        de: 'Nudeln nach Anleitung kochen. Zwiebel und Knoblauch anbraten, Tomaten hinzufügen. Mit Nudeln vermischen und mit Käse bestreuen.'
+    }
+};
+
 let currentLanguage = localStorage.getItem('language') || 'pl';
 let selectedProducts = [];
 let currentRecipeId = null;
@@ -167,9 +341,159 @@ let timerPaused = false;
 let editingRecipeId = null;
 let editingProductId = null;
 
+// Step timer related variables
+let currentConfigStepIndex = null;
+let stepTimerIntervals = {}; // Map of stepIndex to interval
+let stepTimerStates = {}; // Map of stepIndex to { remaining, paused, initial }
+
 // Funkcja tłumaczeń
 function t(key) {
     return translations[currentLanguage][key] || key;
+}
+
+// English to Polish recipe title translations
+const englishToPolishTitles = {
+    'chicken alfredo pasta': 'Makaron Alfredo z Kurczakiem',
+    'chicken alfredo': 'Kurczak Alfredo',
+    'pasta alfredo': 'Makaron Alfredo',
+    'spaghetti carbonara': 'Spaghetti Carbonara',
+    'chicken curry': 'Curry z Kurczaka',
+    'beef stew': 'Gulasz Wołowy',
+    'tomato soup': 'Zupa Pomidorowa',
+    'chicken soup': 'Rosół z Kurczaka',
+    'vegetable soup': 'Zupa Warzywna',
+    'caesar salad': 'Sałatka Cezar',
+    'greek salad': 'Sałatka Grecka',
+    'grilled chicken': 'Grillowany Kurczak',
+    'roast chicken': 'Pieczony Kurczak',
+    'fried chicken': 'Smażony Kurczak',
+    'baked salmon': 'Pieczony Łosoś',
+    'grilled salmon': 'Grillowany Łosoś',
+    'fish and chips': 'Ryba z Frytkami',
+    'beef burger': 'Burger Wołowy',
+    'cheese pizza': 'Pizza z Serem',
+    'pepperoni pizza': 'Pizza Pepperoni',
+    'margherita pizza': 'Pizza Margherita',
+    'mushroom risotto': 'Risotto z Grzybami',
+    'seafood paella': 'Paella z Owocami Morza',
+    'pad thai': 'Pad Thai',
+    'fried rice': 'Smażony Ryż',
+    'chicken fried rice': 'Smażony Ryż z Kurczakiem',
+    'beef tacos': 'Tacos z Wołowiną',
+    'chicken tacos': 'Tacos z Kurczakiem',
+    'fish tacos': 'Tacos z Rybą',
+    'lasagna': 'Lasagne',
+    'beef lasagna': 'Lasagne z Wołowiną',
+    'mac and cheese': 'Makaron z Serem',
+    'spaghetti bolognese': 'Spaghetti Bolognese',
+    'spaghetti': 'Spaghetti',
+    'meatballs': 'Klopsiki',
+    'chicken breast': 'Pierś z Kurczaka',
+    'pork chops': 'Kotlety Schabowe',
+    'steak': 'Stek',
+    'bbq ribs': 'Żeberka BBQ',
+    'pulled pork': 'Szarpana Wieprzowina',
+    'roast beef': 'Pieczeń Wołowa',
+    'pot roast': 'Pieczeń w Garnku',
+    'beef wellington': 'Wołowina Wellington'
+};
+
+// Translate recipe title
+function translateRecipeTitle(title) {
+    if (!title) return title;
+    
+    // If current language is Polish, try to translate English titles
+    if (currentLanguage === 'pl') {
+        const lowerTitle = title.toLowerCase().trim();
+        
+        // Try exact match first
+        if (englishToPolishTitles[lowerTitle]) {
+            return englishToPolishTitles[lowerTitle];
+        }
+        
+        // Try partial translation of words in the title
+        let translated = title;
+        let hasTranslation = false;
+        
+        for (const [english, polish] of Object.entries(englishToPolishTitles)) {
+            if (lowerTitle.includes(english)) {
+                translated = translated.replace(new RegExp(english, 'gi'), polish);
+                hasTranslation = true;
+                break;
+            }
+        }
+        
+        return hasTranslation ? translated : title;
+    }
+    
+    // For non-Polish languages, use predefined translations
+    return (recipeTextTranslations[title] && recipeTextTranslations[title][currentLanguage]) || title;
+}
+
+// Translate single ingredient
+function translateIngredient(ingredient) {
+    if (!ingredient) return ingredient;
+    
+    // If current language is Polish and ingredient looks English, translate to Polish
+    if (currentLanguage === 'pl') {
+        const lowerIngredient = ingredient.toLowerCase();
+        
+        // Try exact match first
+        if (englishToPolishIngredients[lowerIngredient]) {
+            return englishToPolishIngredients[lowerIngredient];
+        }
+        
+        // Try partial matches (for ingredients with measurements like "Chicken (500g)")
+        let translated = ingredient;
+        for (const [english, polish] of Object.entries(englishToPolishIngredients)) {
+            const regex = new RegExp(`\\b${english}\\b`, 'gi');
+            if (regex.test(lowerIngredient)) {
+                translated = ingredient.replace(regex, polish);
+                break;
+            }
+        }
+        
+        return translated;
+    }
+    
+    // For non-Polish languages, use the original Polish->Other translation
+    if (currentLanguage === 'pl' || !ingredient) return ingredient;
+    return (ingredientTranslations[ingredient] && ingredientTranslations[ingredient][currentLanguage]) || ingredient;
+}
+
+// Translate instructions
+function translateInstructions(text) {
+    if (!text) return text;
+    
+    // Don't translate if current language is Polish BUT check if this is an API recipe
+    // API recipes should stay in English as word-by-word translation produces poor results
+    if (currentLanguage === 'pl') {
+        // If text contains a lot of English cooking terms, it's likely an API recipe
+        // Just return it as-is with no translation
+        const englishIndicators = ['cook', 'heat', 'add', 'mix', 'stir', 'pour', 'serve', 'until', 'the', 'and', 'in', 'on', 'for'];
+        const englishWordCount = englishIndicators.filter(word => 
+            new RegExp(`\\b${word}\\b`, 'i').test(text)
+        ).length;
+        
+        // If more than 5 English indicator words found, this is likely an API recipe in English
+        // Don't translate it - machine translation word-by-word produces gibberish
+        if (englishWordCount >= 5) {
+            return text; // Return original English text
+        }
+        
+        // Otherwise, it's likely a Polish recipe, return as-is
+        return text;
+    }
+    
+    // For non-Polish languages, use predefined translations
+    if (currentLanguage === 'pl' || !text) return text;
+    return (recipeTextTranslations[text] && recipeTextTranslations[text][currentLanguage]) || text;
+}
+
+// Translate product name
+function translateProductName(name) {
+    if (currentLanguage === 'pl' || !name) return name;
+    return (ingredientTranslations[name] && ingredientTranslations[name][currentLanguage]) || name;
 }
 
 // Inicjalizacja danych
@@ -221,6 +545,67 @@ function initData() {
         };
         localStorage.setItem('admin', JSON.stringify(admin));
     }
+    
+    // Initialize user preferences for step timers
+    if (!localStorage.getItem('timerPreferences')) {
+        const defaultPreferences = {
+            defaultHeatSource: 'gas',
+            defaultCookware: 'pot',
+            favoriteVariants: {}
+        };
+        localStorage.setItem('timerPreferences', JSON.stringify(defaultPreferences));
+    }
+}
+
+// Get user preferences
+function getTimerPreferences() {
+    return JSON.parse(localStorage.getItem('timerPreferences') || '{"defaultHeatSource":"gas","defaultCookware":"pot","favoriteVariants":{}}');
+}
+
+// Save user preferences
+function saveTimerPreferences(preferences) {
+    localStorage.setItem('timerPreferences', JSON.stringify(preferences));
+}
+
+// Get recipe step configuration
+function getStepConfig(recipeId, stepIndex) {
+    const recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
+    const recipe = recipes.find(r => r.id === recipeId);
+    
+    if (!recipe || !recipe.steps || !recipe.steps[stepIndex]) {
+        return null;
+    }
+    
+    const step = recipe.steps[stepIndex];
+    return step.timerConfig || null;
+}
+
+// Save step configuration
+function saveStepConfig(recipeId, stepIndex, config) {
+    const recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
+    const recipeIndex = recipes.findIndex(r => r.id === recipeId);
+    
+    if (recipeIndex === -1 || !recipes[recipeIndex].steps || !recipes[recipeIndex].steps[stepIndex]) {
+        return false;
+    }
+    
+    // Initialize step if it's just a string
+    if (typeof recipes[recipeIndex].steps[stepIndex] === 'string') {
+        const stepText = recipes[recipeIndex].steps[stepIndex];
+        recipes[recipeIndex].steps[stepIndex] = {
+            description: stepText,
+            time: null
+        };
+    } else if (typeof recipes[recipeIndex].steps[stepIndex] === 'object' && !recipes[recipeIndex].steps[stepIndex].description) {
+        // Handle { description, time } format
+        // Already in correct format, no changes needed
+    }
+    
+    // Merge config into step
+    recipes[recipeIndex].steps[stepIndex].timerConfig = config;
+    
+    localStorage.setItem('recipes', JSON.stringify(recipes));
+    return true;
 }
 
 // Event listeners
@@ -242,6 +627,7 @@ function setupEventListeners() {
     });
     document.getElementById('apiSearchBtn').addEventListener('click', searchRecipesFromAPI);
     document.getElementById('adminBtn').addEventListener('click', () => showView('adminView'));
+    document.getElementById('adminBackBtn').addEventListener('click', () => showView('mainView'));
     document.getElementById('backBtn').addEventListener('click', () => showView('mainView'));
     document.getElementById('timerBackBtn').addEventListener('click', () => {
         stopTimer();
@@ -253,7 +639,11 @@ function setupEventListeners() {
     document.getElementById('addProductBtn').addEventListener('click', () => openProductModal());
     document.getElementById('recipeForm').addEventListener('submit', handleRecipeSubmit);
     document.getElementById('productForm').addEventListener('submit', handleProductSubmit);
-    document.getElementById('saveApiKeysBtn').addEventListener('click', saveApiKeys);
+    // Optional API keys button - only if element exists
+    const saveApiKeysBtn = document.getElementById('saveApiKeysBtn');
+    if (saveApiKeysBtn) {
+        saveApiKeysBtn.addEventListener('click', saveApiKeys);
+    }
     document.getElementById('cancelRecipeBtn').addEventListener('click', closeRecipeModal);
     document.getElementById('cancelProductBtn').addEventListener('click', closeProductModal);
     document.querySelectorAll('.close').forEach(btn => {
@@ -262,17 +652,75 @@ function setupEventListeners() {
             closeProductModal();
         });
     });
+    
+    // Step timer configuration modal listeners
+    setupStepTimerConfigListeners();
+}
+
+// Setup step timer configuration modal event listeners
+function setupStepTimerConfigListeners() {
+    const modal = document.getElementById('stepTimerConfigModal');
+    const closeBtn = document.getElementById('closeStepTimerConfig');
+    const cancelBtn = document.getElementById('cancelStepTimerConfig');
+    const saveBtn = document.getElementById('saveStepTimerConfig');
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeStepTimerConfigModal);
+    }
+    
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', closeStepTimerConfigModal);
+    }
+    
+    if (saveBtn) {
+        saveBtn.addEventListener('click', saveStepTimerConfiguration);
+    }
+    
+    // Ingredient category change - update variants
+    const categorySelect = document.getElementById('stepIngredientCategory');
+    if (categorySelect) {
+        categorySelect.addEventListener('change', (e) => {
+            updateVariantOptions(e.target.value);
+            calculateRecommendedTime();
+        });
+    }
+    
+    // Update recommended time when any config changes
+    const configInputs = ['stepActionType', 'stepIngredientVariant', 'stepCookware', 'stepHeatSource'];
+    configInputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('change', calculateRecommendedTime);
+        }
+    });
+    
+    // Time source radio buttons
+    const timeSourceRadios = document.querySelectorAll('input[name="timeSource"]');
+    timeSourceRadios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const manualInput = document.getElementById('manualTimeInput');
+            if (e.target.value === 'manual') {
+                manualInput.style.display = 'block';
+            } else {
+                manualInput.style.display = 'none';
+            }
+        });
+    });
 }
 
 // Aktualizacja języka
 function updateLanguage() {
-    const t = translations[currentLanguage];
-    document.getElementById('searchInput').placeholder = t.search;
-    document.getElementById('timeFilter').placeholder = t.maxTime;
+    const trans = translations[currentLanguage];
+    
+    // Update input placeholders
+    document.getElementById('searchInput').placeholder = trans.search;
+    document.getElementById('timeFilter').placeholder = trans.maxTime;
+    
+    // Update method filter dropdown
     const methodFilter = document.getElementById('methodFilter');
     if (methodFilter) {
         methodFilter.innerHTML = `
-            <option value="">${t.allMethods}</option>
+            <option value="">${trans.allMethods}</option>
             <option value="boiling">${getMethodName('boiling')}</option>
             <option value="baking">${getMethodName('baking')}</option>
             <option value="grilling">${getMethodName('grilling')}</option>
@@ -281,10 +729,44 @@ function updateLanguage() {
             <option value="roasting">${getMethodName('roasting')}</option>
         `;
     }
+    
+    // Update "Select products:" title
     const productsTitle = document.getElementById('productsFilterTitle');
     if (productsTitle) {
-        productsTitle.textContent = t.selectProducts;
+        productsTitle.textContent = trans.selectProducts;
     }
+    
+    // Update API search button
+    const searchApiBtn = document.getElementById('searchApiBtn');
+    if (searchApiBtn) {
+        searchApiBtn.innerHTML = '🔍 ' + trans.searchApi;
+    }
+    
+    // Update API section title
+    const apiSearchSection = document.querySelector('#apiSearchSection h3');
+    if (apiSearchSection) {
+        apiSearchSection.textContent = trans.searchApiTitle;
+    }
+    
+    // Update API search input placeholder
+    const apiSearchInput = document.getElementById('apiSearchInput');
+    if (apiSearchInput) {
+        apiSearchInput.placeholder = trans.apiSearchPlaceholder;
+    }
+    
+    // Update API search button (the one inside the API section)
+    const apiSearchButton = document.querySelector('#apiSearchSection button.btn-primary');
+    if (apiSearchButton) {
+        apiSearchButton.textContent = trans.search;
+    }
+    
+    // Update loading text
+    const apiLoading = document.querySelector('#apiLoading p');
+    if (apiLoading) {
+        apiLoading.textContent = trans.loading;
+    }
+    
+    // Re-render to apply translations
     renderRecipes();
     renderProducts();
 }
@@ -347,8 +829,8 @@ function renderRecipes() {
             try {
                 return `
                     <div class="recipe-card" onclick="showRecipe(${recipe.id})">
-                        ${recipe.image ? `<img src="${recipe.image}" style="width: 100%; border-radius: 10px; margin-bottom: 10px; max-height: 200px; object-fit: cover;" alt="${recipe.title}" onerror="this.style.display='none'">` : ''}
-                        <h3>${recipe.title || 'Bez tytułu'}</h3>
+                        ${recipe.image ? `<img src="${recipe.image}" style="width: 100%; border-radius: 10px; margin-bottom: 10px; max-height: 200px; object-fit: cover;" alt="${translateRecipeTitle(recipe.title)}" onerror="this.style.display='none'">` : ''}
+                        <h3>${translateRecipeTitle(recipe.title) || 'Bez tytułu'}</h3>
                         <p>${t('cookingTime')}: ${recipe.cookingTime || 0} min</p>
                         <p>${t('method')}: ${getMethodName(recipe.cookingMethod || 'other')}</p>
                         ${recipe.source === 'api' || recipe.source === 'themealdb' ? '<p style="font-size: 0.8rem; color: #888;">📡 Z API</p>' : ''}
@@ -375,7 +857,7 @@ function renderProducts() {
     container.innerHTML = products.map(product => `
         <div class="product-chip ${selectedProducts.includes(product.id) ? 'selected' : ''}" 
              onclick="toggleProduct(${product.id})">
-            ${product.name}
+            ${translateProductName(product.name)}
         </div>
     `).join('');
 }
@@ -397,26 +879,66 @@ function showRecipe(id) {
     
     if (!recipe) return;
 
+    // Build steps HTML if available
+    let stepsHTML = '';
+    if (recipe.steps && Array.isArray(recipe.steps) && recipe.steps.length > 0) {
+        stepsHTML = `
+            <div class="recipe-steps" style="margin: 30px 0;">
+                <h3 style="color: #333;">Kroki przygotowania</h3>
+                ${recipe.steps.map((step, idx) => {
+                    const stepDesc = (typeof step === 'object' && step.description) ? step.description : step;
+                    const stepTime = (typeof step === 'object' && step.time) ? step.time : 0;
+                    const hasTimerConfig = (typeof step === 'object' && step.timerConfig && step.timerConfig.timerEnabled);
+                    
+                    return `
+                        <div style="background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 10px; border-left: 4px solid #667eea;">
+                            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                                <h4 style="margin: 0; color: #333;">Krok ${idx + 1}</h4>
+                                ${hasTimerConfig ? '<span style="background: #667eea; color: white; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem;">⏱️ Timer</span>' : ''}
+                            </div>
+                            <p style="margin: 10px 0; color: #555;">${stepDesc}</p>
+                            ${stepTime > 0 ? `<p style="margin: 5px 0; font-size: 0.85rem; color: #888;">Czas: ${stepTime} minut</p>` : ''}
+                            ${hasTimerConfig ? `
+                                <p style="margin: 5px 0; font-size: 0.85rem; color: #667eea;">
+                                    Timer skonfigurowany: ${Math.floor(step.timerConfig.finalTimeSeconds / 60)} min 
+                                    ${step.timerConfig.finalTimeSeconds % 60 > 0 ? (step.timerConfig.finalTimeSeconds % 60) + ' sek' : ''}
+                                </p>
+                            ` : ''}
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+    }
+
     const container = document.getElementById('recipeDetails');
     container.innerHTML = `
-        ${recipe.image ? `<img src="${recipe.image}" style="width: 100%; max-width: 500px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="${recipe.title}" onerror="this.style.display='none'">` : ''}
-        <h2>${recipe.title}</h2>
+        ${recipe.source === 'api' || recipe.source === 'themealdb' ? `
+            <div style="background: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196f3;">
+                <p style="margin: 0; color: #1976d2; font-size: 0.95rem;">
+                    📡 <strong>Przepis z API</strong> - Instrukcje w języku angielskim
+                </p>
+            </div>
+        ` : ''}
+        ${recipe.image ? `<img src="${recipe.image}" style="width: 100%; max-width: 500px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);" alt="${translateRecipeTitle(recipe.title)}" onerror="this.style.display='none'">` : ''}
+        <h2 style="color: #333;">${translateRecipeTitle(recipe.title)}</h2>
         <div class="meta-info">
-            <p><strong>${t('cookingTime')}:</strong> ${recipe.cookingTime} min</p>
-            <p><strong>${t('method')}:</strong> ${getMethodName(recipe.cookingMethod)}</p>
-            ${recipe.temperature ? `<p><strong>${t('temperature')}:</strong> ${recipe.temperature}°C</p>` : ''}
-            ${recipe.restTime ? `<p><strong>${t('restTime')}:</strong> ${recipe.restTime} min</p>` : ''}
+            <p style="color: #666;"><strong>${t('cookingTime')}:</strong> ${recipe.cookingTime} min</p>
+            <p style="color: #666;"><strong>${t('method')}:</strong> ${getMethodName(recipe.cookingMethod)}</p>
+            ${recipe.temperature ? `<p style="color: #666;"><strong>${t('temperature')}:</strong> ${recipe.temperature}°C</p>` : ''}
+            ${recipe.restTime ? `<p style="color: #666;"><strong>${t('restTime')}:</strong> ${recipe.restTime} min</p>` : ''}
         </div>
         <div class="ingredients">
-            <h3>${t('ingredients')}</h3>
+            <h3 style="color: #333;">${t('ingredients')}</h3>
             <ul>
-                ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                ${recipe.ingredients.map(ing => `<li style="color: #333;">${translateIngredient(ing)}</li>`).join('')}
             </ul>
         </div>
         <div class="instructions">
-            <h3>${t('instructions')}</h3>
-            <p>${recipe.instructions}</p>
+            <h3 style="color: #333;">${t('instructions')}</h3>
+            <p style="color: #555; line-height: 1.8;">${translateInstructions(recipe.instructions)}</p>
         </div>
+        ${stepsHTML}
         <button class="btn-primary" onclick="startTimer(${recipe.id})" style="margin-top: 30px; width: 100%;">
             ${t('startTimer')}
         </button>
@@ -534,70 +1056,130 @@ function renderTimerDisplay() {
         return;
     }
     
+    // Build step timer sections HTML
+    let stepTimersHTML = '';
+    if (totalSteps > 0 && recipeSteps) {
+        stepTimersHTML = recipeSteps.map((step, idx) => {
+            const stepDesc = (step && typeof step === 'object' && step.description) ? step.description : (step || `Krok ${idx + 1}`);
+            const stepTime = (step && typeof step === 'object' && step.time) ? step.time : 0;
+            const stepConfig = (step && typeof step === 'object' && step.timerConfig) ? step.timerConfig : null;
+            
+            const isActive = idx === currentStepIndex;
+            const isCompleted = idx < currentStepIndex;
+            
+            // Initialize step timer state if it has config
+            if (stepConfig && stepConfig.timerEnabled && !stepTimerStates[idx]) {
+                stepTimerStates[idx] = {
+                    initial: stepConfig.finalTimeSeconds,
+                    remaining: stepConfig.finalTimeSeconds,
+                    paused: false
+                };
+            }
+            
+            const hasTimer = stepConfig && stepConfig.timerEnabled;
+            const timerState = stepTimerStates[idx];
+            
+            return `
+                <div class="step-timer-section" style="opacity: ${isActive ? '1' : '0.7'}; ${isCompleted ? 'background: #e8f5e9;' : ''}">
+                    <div class="step-timer-header">
+                        <h4>
+                            ${isCompleted ? '✓' : ''} Krok ${idx + 1}${isActive ? ' (Aktywny)' : ''}
+                        </h4>
+                    </div>
+                    <p style="margin: 10px 0; color: #555;">${stepDesc}</p>
+                    ${stepTime > 0 ? `<p style="margin: 5px 0; font-size: 0.85rem; color: #888;">Czas w przepisie: ${stepTime} min</p>` : ''}
+                    
+                    ${hasTimer ? `
+                        <div class="step-timer-time-display" id="stepTimer-${idx}-time">
+                            ${formatTime(timerState ? timerState.remaining : stepConfig.finalTimeSeconds)}
+                        </div>
+                        <div class="step-timer-progress">
+                            <div class="step-timer-progress-bar" id="stepTimer-${idx}-progress" style="width: 0%"></div>
+                        </div>
+                        <div class="step-timer-source">
+                            <span class="badge">
+                                ${stepConfig.timeSource === 'recipe' ? 'Czas z przepisu' : 
+                                  stepConfig.timeSource === 'recommended' ? 'Zalecany' : 'Ręczny'}
+                            </span>
+                        </div>
+                        <div class="step-timer-controls">
+                            <button class="btn-timer-action btn-timer-start" id="stepTimer-${idx}-start" 
+                                onclick="startStepTimer(${currentRecipeId}, ${idx})">
+                                Start
+                            </button>
+                            <button class="btn-timer-action btn-timer-pause" id="stepTimer-${idx}-pause" 
+                                style="display: none;" onclick="pauseStepTimer(${idx})">
+                                Pauza
+                            </button>
+                            <button class="btn-timer-action btn-timer-pause" id="stepTimer-${idx}-resume" 
+                                style="display: none;" onclick="resumeStepTimer(${idx})">
+                                Wznów
+                            </button>
+                            <button class="btn-timer-action btn-timer-reset" 
+                                onclick="resetStepTimer(${currentRecipeId}, ${idx})">
+                                Reset
+                            </button>
+                            <button class="btn-timer-action btn-timer-configure" 
+                                onclick="openStepTimerConfigModal(${currentRecipeId}, ${idx})">
+                                Konfiguruj
+                            </button>
+                        </div>
+                    ` : `
+                        <div style="text-align: center; margin: 15px 0;">
+                            <button class="step-enable-timer" onclick="enableStepTimer(${currentRecipeId}, ${idx})">
+                                ⏱️ Włącz Timer dla tego kroku
+                            </button>
+                        </div>
+                    `}
+                </div>
+            `;
+        }).join('');
+    }
+    
     container.innerHTML = `
         <div class="timer-display">
             <h2>${recipe.title}</h2>
-            ${totalSteps > 0 && currentStep ? `
-                <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #667eea;">
-                    <h3 style="margin: 0 0 10px 0; color: #333; font-size: 1.3rem;">Krok ${currentStepIndex + 1} z ${totalSteps}</h3>
-                    <p style="margin: 0; font-size: 1.2rem; color: #555; font-weight: 500;">${(currentStep && typeof currentStep === 'object' && currentStep.description) ? currentStep.description : (currentStep || 'Brak opisu')}</p>
-                    ${(currentStep && typeof currentStep === 'object' && currentStep.time) ? `<p style="margin: 10px 0 0 0; font-size: 0.9rem; color: #888;">Czas: ${currentStep.time} minut</p>` : ''}
-                </div>
-            ` : totalSteps > 0 ? `
-                <div style="background: #fff3cd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #ffc107;">
-                    <p style="margin: 0; color: #856404; font-weight: bold;">DEBUG: Przepis ma ${totalSteps} kroków (indeks: ${currentStepIndex})</p>
-                    <p style="margin: 0; color: #856404; font-size: 0.9rem;">recipeSteps: ${JSON.stringify(recipeSteps)}</p>
-                    <p style="margin: 0; color: #856404; font-size: 0.9rem;">currentStep: ${JSON.stringify(currentStep)}</p>
-                    <p style="margin: 0; color: #856404; font-size: 0.9rem;">recipe.steps z localStorage: ${JSON.stringify(recipe.steps)}</p>
-                </div>
-            ` : recipe.steps !== null && recipe.steps !== undefined ? `
-                <div style="background: #f8d7da; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #dc3545;">
-                    <p style="margin: 0; color: #721c24; font-weight: bold;">⚠️ DEBUG: Przepis ma pole steps, ale nie zostało sparsowane</p>
-                    <p style="margin: 0; color: #721c24; font-size: 0.9rem;">recipe.steps: ${JSON.stringify(recipe.steps)}</p>
-                    <p style="margin: 0; color: #721c24; font-size: 0.9rem;">Type: ${typeof recipe.steps}, isArray: ${Array.isArray(recipe.steps)}</p>
-                </div>
-            ` : ''}
-            <div class="timer-time" id="timerTime">${formatTime(stepTimerRemaining)}</div>
-            <p style="color: #666; margin: 10px 0;">${currentStep ? 'Czas dla tego kroku' : 'Pozostały czas'}</p>
-            <div class="timer-progress">
-                <div class="timer-progress-bar" id="timerProgress" style="width: 100%"></div>
-            </div>
+            
             ${totalSteps > 0 ? `
                 <div style="margin: 20px 0;">
-                    <p style="color: #666; margin-bottom: 10px; font-weight: 500;">Postęp: ${currentStepIndex + 1}/${totalSteps} kroków</p>
-                    <div style="display: flex; gap: 5px; justify-content: center; flex-wrap: wrap;">
-                        ${recipeSteps && recipeSteps.length > 0 ? recipeSteps.map((step, idx) => {
+                    <h3 style="color: #333; margin-bottom: 15px;">Timery kroków przygotowania</h3>
+                    ${stepTimersHTML}
+                </div>
+                
+                <div style="margin: 30px 0; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+                    <h4 style="margin: 0 0 10px 0; color: #333;">Postęp przepisu: ${currentStepIndex + 1}/${totalSteps} kroków</h4>
+                    <div class="timer-step-progress-dots">
+                        ${recipeSteps.map((step, idx) => {
                             const stepDesc = (step && typeof step === 'object' && step.description) ? step.description : (step || `Krok ${idx + 1}`);
                             return `
-                            <div style="width: 35px; height: 35px; border-radius: 50%; background: ${idx < currentStepIndex ? '#28a745' : idx === currentStepIndex ? '#667eea' : '#e0e0e0'}; 
-                                 display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: bold; cursor: pointer; transition: all 0.3s;"
-                                 title="${stepDesc}"
-                                 onmouseover="this.style.transform='scale(1.1)'"
-                                 onmouseout="this.style.transform='scale(1)'">
+                            <div class="timer-step-dot ${idx < currentStepIndex ? 'completed' : idx === currentStepIndex ? 'active' : 'pending'}"
+                                 title="${stepDesc}">
                                 ${idx + 1}
                             </div>
                         `;
-                        }).join('') : '<p style="color: red;">Błąd: recipeSteps jest puste</p>'}
+                        }).join('')}
                     </div>
-                    ${recipeSteps && recipeSteps.length > 0 ? `
-                        <div style="margin-top: 15px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
-                            <p style="margin: 0; font-size: 0.9rem; color: #666; font-weight: 500;">Wszystkie kroki:</p>
-                            ${recipeSteps.map((step, idx) => {
-                                const stepDesc = (step && typeof step === 'object' && step.description) ? step.description : step;
-                                const stepTime = (step && typeof step === 'object' && step.time) ? step.time : 0;
-                                return `<p style="margin: 5px 0; font-size: 0.85rem; color: ${idx === currentStepIndex ? '#667eea' : '#888'};">
-                                    ${idx + 1}. ${stepDesc} ${stepTime > 0 ? `(${stepTime} min)` : ''}
-                                </p>`;
-                            }).join('')}
-                        </div>
-                    ` : ''}
                 </div>
-            ` : ''}
-            <div class="timer-controls">
-                <button class="btn-primary" id="timerStartBtn" onclick="timerStart()">${t('start')}</button>
-                <button class="btn-secondary" id="timerPauseBtn" onclick="timerPause()" style="display: none;">${t('pause')}</button>
-                <button class="btn-secondary" id="timerResumeBtn" onclick="timerResume()" style="display: none;">${t('resume')}</button>
-                <button class="btn-secondary" id="timerStopBtn" onclick="timerStop()" style="display: none;">${t('stop')}</button>
+            ` : `
+                <div style="text-align: center; margin: 30px 0;">
+                    <p style="color: #666;">Ten przepis nie ma zdefiniowanych kroków z timerami.</p>
+                    <p style="color: #888; font-size: 0.9rem; margin-top: 10px;">Możesz dodać kroki w Panelu Admin podczas edycji przepisu.</p>
+                </div>
+            `}
+            
+            <div style="margin-top: 30px;">
+                <h3 style="color: #333; margin-bottom: 15px;">Timer całego przepisu</h3>
+                <div class="timer-time" id="timerTime">${formatTime(timerRemaining)}</div>
+                <p style="color: #666; margin: 10px 0;">Całkowity czas gotowania: ${recipe.cookingTime} min</p>
+                <div class="timer-progress">
+                    <div class="timer-progress-bar" id="timerProgress" style="width: 100%"></div>
+                </div>
+                <div class="timer-controls">
+                    <button class="btn-primary" id="timerStartBtn" onclick="timerStart()">${t('start')}</button>
+                    <button class="btn-secondary" id="timerPauseBtn" onclick="timerPause()" style="display: none;">${t('pause')}</button>
+                    <button class="btn-secondary" id="timerResumeBtn" onclick="timerResume()" style="display: none;">${t('resume')}</button>
+                    <button class="btn-secondary" id="timerStopBtn" onclick="timerStop()" style="display: none;">${t('stop')}</button>
+                </div>
             </div>
         </div>
     `;
@@ -705,6 +1287,13 @@ function stopTimer() {
     currentStepIndex = 0;
     recipeSteps = [];
     stepTimerRemaining = 0;
+    
+    // Clear all step timers
+    Object.keys(stepTimerIntervals).forEach(key => {
+        clearInterval(stepTimerIntervals[key]);
+    });
+    stepTimerIntervals = {};
+    stepTimerStates = {};
 }
 
 function updateTimerDisplay() {
@@ -798,9 +1387,33 @@ function t(key) {
 
 function getMethodName(method) {
     const methods = {
-        pl: { boiling: 'Gotowanie', baking: 'Pieczenie', grilling: 'Grillowanie', steaming: 'Gotowanie na parze', frying: 'Smażenie', roasting: 'Pieczenie w piekarniku' },
-        en: { boiling: 'Boiling', baking: 'Baking', grilling: 'Grilling', steaming: 'Steaming', frying: 'Frying', roasting: 'Roasting' },
-        de: { boiling: 'Kochen', baking: 'Backen', grilling: 'Grillen', steaming: 'Dämpfen', frying: 'Braten', roasting: 'Rösten' }
+        pl: { 
+            boiling: 'Gotowanie', 
+            baking: 'Pieczenie', 
+            grilling: 'Grillowanie', 
+            steaming: 'Gotowanie na parze', 
+            frying: 'Smażenie', 
+            roasting: 'Pieczenie w piekarniku',
+            other: 'Inne'
+        },
+        en: { 
+            boiling: 'Boiling', 
+            baking: 'Baking', 
+            grilling: 'Grilling', 
+            steaming: 'Steaming', 
+            frying: 'Frying', 
+            roasting: 'Roasting',
+            other: 'Other'
+        },
+        de: { 
+            boiling: 'Kochen', 
+            baking: 'Backen', 
+            grilling: 'Grillen', 
+            steaming: 'Dämpfen', 
+            frying: 'Braten', 
+            roasting: 'Rösten',
+            other: 'Andere'
+        }
     };
     return methods[currentLanguage][method] || method;
 }
@@ -1464,14 +2077,15 @@ async function searchTheMealDB(query) {
             console.log(`Zapytanie zawiera polskie znaki, ale nie znaleziono tłumaczenia: "${query}"`);
         }
         
+        // Używamy proxy endpointu na naszym backendzie aby uniknąć problemów z CORSI
         // Najpierw spróbuj z przetłumaczonym zapytaniem
-        let response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(searchQuery)}`);
+        let response = await fetch(`http://localhost:5000/api/mealdb/search?s=${encodeURIComponent(searchQuery)}`);
         let data = await response.json();
         
         // Jeśli nie znaleziono wyników z przetłumaczonym zapytaniem, spróbuj z oryginalnym
         if ((!data.meals || data.meals.length === 0) && translated && searchQuery !== query) {
             console.log(`Brak wyników dla "${searchQuery}", próbuję z oryginalnym "${query}"`);
-            response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURIComponent(query)}`);
+            response = await fetch(`http://localhost:5000/api/mealdb/search?s=${encodeURIComponent(query)}`);
             data = await response.json();
         }
         
@@ -1594,6 +2208,353 @@ function initializeApp() {
     const recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
     console.log('Przepisy w localStorage:', recipes.length);
     console.log('Przepisy:', recipes);
+}
+
+// ========================================
+// STEP TIMER CONFIGURATION FUNCTIONS
+// ========================================
+
+// Open step timer configuration modal
+function openStepTimerConfigModal(recipeId, stepIndex) {
+    currentConfigStepIndex = stepIndex;
+    currentRecipeId = recipeId;
+    
+    const recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
+    const recipe = recipes.find(r => r.id === recipeId);
+    
+    if (!recipe || !recipe.steps || !recipe.steps[stepIndex]) {
+        alert('Nie znaleziono kroku do konfiguracji');
+        return;
+    }
+    
+    const step = recipe.steps[stepIndex];
+    const existingConfig = step.timerConfig || {};
+    const preferences = getTimerPreferences();
+    
+    // Pre-fill form with existing config or preferences
+    document.getElementById('stepActionType').value = existingConfig.action || detectActionFromText(step.description) || '';
+    document.getElementById('stepIngredientCategory').value = existingConfig.ingredientCategory || detectIngredientFromText(step.description) || '';
+    document.getElementById('stepCookware').value = existingConfig.cookware || preferences.defaultCookware || 'pot';
+    document.getElementById('stepHeatSource').value = existingConfig.heatSource || preferences.defaultHeatSource || 'gas';
+    
+    // Update variants based on category
+    const category = document.getElementById('stepIngredientCategory').value;
+    updateVariantOptions(category);
+    
+    if (existingConfig.ingredientVariant) {
+        document.getElementById('stepIngredientVariant').value = existingConfig.ingredientVariant;
+    }
+    
+    // Set time source
+    const timeSource = existingConfig.timeSource || 'recommended';
+    document.querySelector(`input[name="timeSource"][value="${timeSource}"]`).checked = true;
+    
+    if (timeSource === 'manual') {
+        document.getElementById('manualTimeInput').style.display = 'block';
+        const manualTime = existingConfig.finalTimeSeconds || 0;
+        document.getElementById('manualMinutes').value = Math.floor(manualTime / 60);
+        document.getElementById('manualSeconds').value = manualTime % 60;
+    } else {
+        document.getElementById('manualTimeInput').style.display = 'none';
+    }
+    
+    // Display recipe time if available
+    const recipeTimeDisplay = document.getElementById('recipeTimeDisplay');
+    if (step.time) {
+        recipeTimeDisplay.textContent = `(${step.time} min)`;
+        document.getElementById('timeSourceRecipe').disabled = false;
+    } else {
+        recipeTimeDisplay.textContent = '(brak)';
+        document.getElementById('timeSourceRecipe').disabled = true;
+    }
+    
+    // Calculate and show recommended time
+    calculateRecommendedTime();
+    
+    // Show modal
+    document.getElementById('stepTimerConfigModal').classList.add('show');
+}
+
+// Close step timer configuration modal
+function closeStepTimerConfigModal() {
+    document.getElementById('stepTimerConfigModal').classList.remove('show');
+    currentConfigStepIndex = null;
+}
+
+// Update variant options based on ingredient category
+function updateVariantOptions(category) {
+    const variantSelect = document.getElementById('stepIngredientVariant');
+    const variantContainer = document.getElementById('stepVariantContainer');
+    
+    if (!category) {
+        variantContainer.style.display = 'none';
+        return;
+    }
+    
+    const variants = getAvailableVariants(category);
+    
+    if (variants.length === 0) {
+        variantContainer.style.display = 'none';
+        return;
+    }
+    
+    variantContainer.style.display = 'block';
+    variantSelect.innerHTML = '<option value="">Wybierz wariant</option>';
+    
+    variants.forEach(variant => {
+        const option = document.createElement('option');
+        option.value = variant;
+        option.textContent = variant;
+        variantSelect.appendChild(option);
+    });
+}
+
+// Calculate recommended time based on current form values
+function calculateRecommendedTime() {
+    const config = {
+        action: document.getElementById('stepActionType').value,
+        ingredientCategory: document.getElementById('stepIngredientCategory').value,
+        ingredientVariant: document.getElementById('stepIngredientVariant').value,
+        cookware: document.getElementById('stepCookware').value,
+        heatSource: document.getElementById('stepHeatSource').value
+    };
+    
+    // Only calculate if we have at least ingredient category
+    if (!config.ingredientCategory) {
+        document.getElementById('recommendedTimeDisplay').style.display = 'none';
+        document.getElementById('recommendedTimeSourceDisplay').textContent = '';
+        return;
+    }
+    
+    const result = calculateStepTime(config);
+    
+    if (result.recommendedTimeSeconds) {
+        const minutes = Math.floor(result.recommendedTimeSeconds / 60);
+        const seconds = result.recommendedTimeSeconds % 60;
+        
+        document.getElementById('recommendedTimeText').textContent = 
+            `${minutes} min ${seconds > 0 ? seconds + ' sek' : ''}`;
+        document.getElementById('recommendedTimeNote').textContent = result.note || '';
+        document.getElementById('recommendedTimeDisplay').style.display = 'block';
+        
+        // Update the recommended time source display
+        document.getElementById('recommendedTimeSourceDisplay').textContent = 
+            `(${minutes} min ${seconds > 0 ? seconds + ' sek' : ''})`;
+    } else {
+        document.getElementById('recommendedTimeDisplay').style.display = 'none';
+        document.getElementById('recommendedTimeSourceDisplay').textContent = '';
+    }
+}
+
+// Save step timer configuration
+function saveStepTimerConfiguration() {
+    if (currentConfigStepIndex === null || !currentRecipeId) {
+        alert('Błąd: brak aktywnego kroku do konfiguracji');
+        return;
+    }
+    
+    const recipes = JSON.parse(localStorage.getItem('recipes') || '[]');
+    const recipe = recipes.find(r => r.id === currentRecipeId);
+    
+    if (!recipe || !recipe.steps || !recipe.steps[currentConfigStepIndex]) {
+        alert('Nie znaleziono kroku');
+        return;
+    }
+    
+    const step = recipe.steps[currentConfigStepIndex];
+    
+    // Get configuration values
+    const config = {
+        action: document.getElementById('stepActionType').value,
+        ingredientCategory: document.getElementById('stepIngredientCategory').value,
+        ingredientVariant: document.getElementById('stepIngredientVariant').value,
+        cookware: document.getElementById('stepCookware').value,
+        heatSource: document.getElementById('stepHeatSource').value
+    };
+    
+    // Calculate recommended time
+    const timeResult = calculateStepTime(config);
+    
+    // Get time source
+    const timeSource = document.querySelector('input[name="timeSource"]:checked').value;
+    
+    let finalTimeSeconds = 0;
+    
+    if (timeSource === 'recipe') {
+        finalTimeSeconds = (step.time || 0) * 60;
+    } else if (timeSource === 'recommended') {
+        finalTimeSeconds = timeResult.recommendedTimeSeconds || 0;
+    } else if (timeSource === 'manual') {
+        const minutes = parseInt(document.getElementById('manualMinutes').value) || 0;
+        const seconds = parseInt(document.getElementById('manualSeconds').value) || 0;
+        finalTimeSeconds = minutes * 60 + seconds;
+    }
+    
+    if (finalTimeSeconds <= 0) {
+        alert('Proszę ustawić prawidłowy czas');
+        return;
+    }
+    
+    // Create timer config object
+    const timerConfig = {
+        timerEnabled: true,
+        timeSource: timeSource,
+        recipeTimeSeconds: (step.time || 0) * 60,
+        recommendedTimeSeconds: timeResult.recommendedTimeSeconds || null,
+        finalTimeSeconds: finalTimeSeconds,
+        timingConfig: config
+    };
+    
+    // Save configuration
+    const success = saveStepConfig(currentRecipeId, currentConfigStepIndex, timerConfig);
+    
+    if (success) {
+        // Update user preferences
+        const preferences = getTimerPreferences();
+        preferences.defaultCookware = config.cookware;
+        preferences.defaultHeatSource = config.heatSource;
+        if (config.ingredientCategory && config.ingredientVariant) {
+            preferences.favoriteVariants[config.ingredientCategory] = config.ingredientVariant;
+        }
+        saveTimerPreferences(preferences);
+        
+        closeStepTimerConfigModal();
+        
+        // Refresh timer display if in timer view
+        if (document.getElementById('timerView').classList.contains('active')) {
+            renderTimerDisplay();
+        }
+    } else {
+        alert('Błąd podczas zapisywania konfiguracji');
+    }
+}
+
+// Enable step timer
+function enableStepTimer(recipeId, stepIndex) {
+    openStepTimerConfigModal(recipeId, stepIndex);
+}
+
+// Start step timer
+function startStepTimer(recipeId, stepIndex) {
+    const config = getStepConfig(recipeId, stepIndex);
+    
+    if (!config || !config.finalTimeSeconds) {
+        alert('Najpierw skonfiguruj timer dla tego kroku');
+        openStepTimerConfigModal(recipeId, stepIndex);
+        return;
+    }
+    
+    // Initialize step timer state
+    if (!stepTimerStates[stepIndex]) {
+        stepTimerStates[stepIndex] = {
+            initial: config.finalTimeSeconds,
+            remaining: config.finalTimeSeconds,
+            paused: false
+        };
+    }
+    
+    // Clear existing interval if any
+    if (stepTimerIntervals[stepIndex]) {
+        clearInterval(stepTimerIntervals[stepIndex]);
+    }
+    
+    stepTimerStates[stepIndex].paused = false;
+    
+    // Start countdown
+    stepTimerIntervals[stepIndex] = setInterval(() => {
+        if (!stepTimerStates[stepIndex].paused && stepTimerStates[stepIndex].remaining > 0) {
+            stepTimerStates[stepIndex].remaining--;
+            updateStepTimerDisplay(stepIndex);
+            
+            if (stepTimerStates[stepIndex].remaining <= 0) {
+                clearInterval(stepTimerIntervals[stepIndex]);
+                stepTimerComplete(stepIndex);
+            }
+        }
+    }, 1000);
+    
+    updateStepTimerDisplay(stepIndex);
+}
+
+// Pause step timer
+function pauseStepTimer(stepIndex) {
+    if (stepTimerStates[stepIndex]) {
+        stepTimerStates[stepIndex].paused = true;
+        updateStepTimerDisplay(stepIndex);
+    }
+}
+
+// Resume step timer
+function resumeStepTimer(stepIndex) {
+    if (stepTimerStates[stepIndex]) {
+        stepTimerStates[stepIndex].paused = false;
+        updateStepTimerDisplay(stepIndex);
+    }
+}
+
+// Reset step timer
+function resetStepTimer(recipeId, stepIndex) {
+    const config = getStepConfig(recipeId, stepIndex);
+    
+    if (stepTimerIntervals[stepIndex]) {
+        clearInterval(stepTimerIntervals[stepIndex]);
+        delete stepTimerIntervals[stepIndex];
+    }
+    
+    if (config && config.finalTimeSeconds) {
+        stepTimerStates[stepIndex] = {
+            initial: config.finalTimeSeconds,
+            remaining: config.finalTimeSeconds,
+            paused: false
+        };
+    }
+    
+    updateStepTimerDisplay(stepIndex);
+}
+
+// Update step timer display
+function updateStepTimerDisplay(stepIndex) {
+    const timeEl = document.getElementById(`stepTimer-${stepIndex}-time`);
+    const progressEl = document.getElementById(`stepTimer-${stepIndex}-progress`);
+    const startBtn = document.getElementById(`stepTimer-${stepIndex}-start`);
+    const pauseBtn = document.getElementById(`stepTimer-${stepIndex}-pause`);
+    const resumeBtn = document.getElementById(`stepTimer-${stepIndex}-resume`);
+    
+    if (timeEl && stepTimerStates[stepIndex]) {
+        const state = stepTimerStates[stepIndex];
+        timeEl.textContent = formatTime(state.remaining);
+        
+        if (progressEl) {
+            const progress = state.initial > 0 ? ((state.initial - state.remaining) / state.initial) * 100 : 0;
+            progressEl.style.width = progress + '%';
+        }
+        
+        // Update button visibility
+        const isRunning = stepTimerIntervals[stepIndex] !== undefined;
+        const isPaused = state.paused;
+        
+        if (startBtn) startBtn.style.display = !isRunning ? 'inline-block' : 'none';
+        if (pauseBtn) pauseBtn.style.display = (isRunning && !isPaused) ? 'inline-block' : 'none';
+        if (resumeBtn) resumeBtn.style.display = (isRunning && isPaused) ? 'inline-block' : 'none';
+    }
+}
+
+// Step timer complete
+function stepTimerComplete(stepIndex) {
+    if ('Notification' in window && Notification.permission === 'granted') {
+        new Notification('Timer kroku zakończony!', {
+            body: `Krok ${stepIndex + 1} został zakończony`,
+            icon: '⏰'
+        });
+    }
+    
+    alert(`Timer kroku ${stepIndex + 1} zakończony! ⏰`);
+    
+    // Reset state
+    if (stepTimerStates[stepIndex]) {
+        stepTimerStates[stepIndex].remaining = 0;
+        updateStepTimerDisplay(stepIndex);
+    }
 }
 
 // Wywołaj inicjalizację gdy DOM jest gotowy

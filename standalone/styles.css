@@ -482,6 +482,274 @@ header h1 {
     color: white;
 }
 
+/* Step Timer Controls */
+.step-timer-section {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    border-left: 4px solid #667eea;
+}
+
+.step-timer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.step-timer-header h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+}
+
+.step-timer-time-display {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+    text-align: center;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+}
+
+.step-timer-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step-timer-controls button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.step-timer-source {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+    margin: 5px 0;
+}
+
+.step-timer-source .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    background: #e8f4f8;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #667eea;
+}
+
+.step-config-link {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.step-config-link:hover {
+    text-decoration: underline;
+}
+
+.step-enable-timer {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+}
+
+.step-enable-timer:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+}
+
+.step-timer-progress {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.step-timer-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 1s linear;
+}
+
+/* Step Timer in Main Timer Display */
+.timer-step-info {
+    background: #f0f7ff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+}
+
+.timer-step-info h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.timer-step-info p {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 500;
+}
+
+.timer-step-progress-dots {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.timer-step-dot {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.timer-step-dot.completed {
+    background: #28a745;
+}
+
+.timer-step-dot.active {
+    background: #667eea;
+}
+
+.timer-step-dot.pending {
+    background: #e0e0e0;
+}
+
+.timer-step-dot:hover {
+    transform: scale(1.1);
+}
+
+.timer-steps-list {
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.timer-steps-list p {
+    margin: 5px 0;
+    font-size: 0.85rem;
+}
+
+.timer-step-item {
+    color: #888;
+}
+
+.timer-step-item.active {
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Configuration Modal Specific Styles */
+#stepTimerConfigModal .modal-content {
+    max-width: 700px;
+}
+
+#stepTimerConfigModal .input-field {
+    margin: 0;
+}
+
+#stepTimerConfigModal label {
+    cursor: pointer;
+}
+
+#stepTimerConfigModal input[type="radio"] {
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+}
+
+#recommendedTimeDisplay {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons for step timer actions */
+.btn-timer-action {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-timer-start {
+    background: #28a745;
+    color: white;
+}
+
+.btn-timer-start:hover {
+    background: #218838;
+}
+
+.btn-timer-pause {
+    background: #ffc107;
+    color: #333;
+}
+
+.btn-timer-pause:hover {
+    background: #e0a800;
+}
+
+.btn-timer-reset {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-timer-reset:hover {
+    background: #c82333;
+}
+
+.btn-timer-configure {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-timer-configure:hover {
+    background: #5a6268;
+}
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -498,5 +766,17 @@ header h1 {
 
     .timer-display .timer-time {
         font-size: 4rem;
+    }
+    
+    .step-timer-controls {
+        flex-direction: column;
+    }
+    
+    .step-timer-controls button {
+        width: 100%;
+    }
+    
+    #stepTimerConfigModal .modal-content {
+        padding: 20px;
     }
 }

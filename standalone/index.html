@@ -68,6 +68,7 @@
         <!-- Panel administracyjny -->
         <div id="adminView" class="view">
             <div id="adminLogin" class="admin-login">
+                <button id="adminBackBtn" class="btn-back" style="margin-bottom: 20px;">← Powrót</button>
                 <h2>Logowanie Administratora</h2>
                 <input type="text" id="adminUsername" placeholder="Nazwa użytkownika" class="input-field">
                 <input type="password" id="adminPassword" placeholder="Hasło" class="input-field">
@@ -162,6 +163,105 @@
         </div>
     </div>
 
+    <!-- Modal dla konfiguracji timera kroku -->
+    <div id="stepTimerConfigModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeStepTimerConfig">&times;</span>
+            <h2 id="stepTimerConfigTitle">Konfiguracja Timera Kroku</h2>
+            <div id="stepTimerConfigContent">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Rodzaj akcji:</label>
+                    <select id="stepActionType" class="input-field">
+                        <option value="">Wybierz akcję</option>
+                        <option value="boil">Gotowanie</option>
+                        <option value="fry">Smażenie</option>
+                        <option value="simmer">Duszenie</option>
+                        <option value="bake">Pieczenie</option>
+                        <option value="steam">Gotowanie na parze</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Kategoria składnika:</label>
+                    <select id="stepIngredientCategory" class="input-field">
+                        <option value="">Wybierz składnik</option>
+                        <option value="pasta">Makaron</option>
+                        <option value="rice">Ryż</option>
+                        <option value="egg">Jajko</option>
+                        <option value="chicken">Kurczak</option>
+                        <option value="grains">Kasze/Ziarna</option>
+                        <option value="vegetables">Warzywa</option>
+                    </select>
+                </div>
+                
+                <div id="stepVariantContainer" style="margin-bottom: 20px; display: none;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Wariant składnika:</label>
+                    <select id="stepIngredientVariant" class="input-field">
+                        <option value="">Wybierz wariant</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Rodzaj naczynia:</label>
+                    <select id="stepCookware" class="input-field">
+                        <option value="pot">Garnek</option>
+                        <option value="pan">Patelnia</option>
+                        <option value="oven">Piekarnik</option>
+                        <option value="steamer">Parowar</option>
+                        <option value="rice cooker">Ryżowar</option>
+                    </select>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Źródło ciepła:</label>
+                    <select id="stepHeatSource" class="input-field">
+                        <option value="gas">Gaz</option>
+                        <option value="induction">Indukcja</option>
+                        <option value="electric">Elektryczna</option>
+                        <option value="oven">Piekarnik</option>
+                    </select>
+                </div>
+                
+                <div id="recommendedTimeDisplay" style="background: #e8f4f8; padding: 15px; border-radius: 10px; margin: 20px 0; display: none;">
+                    <h4 style="margin: 0 0 10px 0; color: #333;">Zalecany czas:</h4>
+                    <p id="recommendedTimeText" style="margin: 0; font-size: 1.5rem; font-weight: bold; color: #667eea;"></p>
+                    <p id="recommendedTimeNote" style="margin: 10px 0 0 0; font-size: 0.9rem; color: #666;"></p>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 5px; font-weight: 500; color: #333;">Wybierz czas dla timera:</label>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <label style="display: flex; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; cursor: pointer;">
+                            <input type="radio" name="timeSource" value="recipe" id="timeSourceRecipe" style="margin-right: 10px;">
+                            <span>Użyj czasu z przepisu <span id="recipeTimeDisplay" style="font-weight: bold;"></span></span>
+                        </label>
+                        <label style="display: flex; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; cursor: pointer;">
+                            <input type="radio" name="timeSource" value="recommended" id="timeSourceRecommended" checked style="margin-right: 10px;">
+                            <span>Użyj zalecanego czasu <span id="recommendedTimeSourceDisplay" style="font-weight: bold;"></span></span>
+                        </label>
+                        <label style="display: flex; align-items: center; padding: 10px; background: #f8f9fa; border-radius: 8px; cursor: pointer;">
+                            <input type="radio" name="timeSource" value="manual" id="timeSourceManual" style="margin-right: 10px;">
+                            <span>Ręcznie wprowadź czas:</span>
+                        </label>
+                        <div id="manualTimeInput" style="display: none; padding-left: 30px;">
+                            <div style="display: flex; gap: 10px; align-items: center;">
+                                <input type="number" id="manualMinutes" placeholder="Minuty" min="0" class="input-field" style="flex: 1;">
+                                <span>:</span>
+                                <input type="number" id="manualSeconds" placeholder="Sekundy" min="0" max="59" class="input-field" style="flex: 1;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancelStepTimerConfig">Anuluj</button>
+                    <button type="button" class="btn-primary" id="saveStepTimerConfig">Zapisz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="stepTimingCalculator.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
